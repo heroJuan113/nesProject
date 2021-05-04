@@ -1,0 +1,16 @@
+
+{{> navegacion/navegacion}}
+<div style="margin-left: 2%;">
+    
+    <form action="http://127.0.0.1:4000/productos/nuevo/{{idUsuario}}/{{idSession}}" method="POST">
+    {{> productos/formulario}}
+    <table>
+        <tr>
+            
+            <td>  {{> botones/aceptar }}</td>
+        </tr>
+    </table>
+  
+</form>
+
+</div>

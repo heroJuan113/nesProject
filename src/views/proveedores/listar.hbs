@@ -1,0 +1,15 @@
+{{>navegacion/navegacion}}
+
+<h3>Catalogo de proveedores</h3>
+<div class="container p-4" style="margin-top: -2%;">
+    <div class="row">
+        {{>proveedores/nuevo}}
+        {{#each proveedores}}
+        hola
+            {{>proveedores/catalogo}}
+            
+        {{/each}}
+        
+    </div>
+    
+</div>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+/*Aplica un reset a la aplicacion*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*Encabezado*/
+
+header {
+    font-family: 'Oswald', sans-serif;
+    background: #0C746C;
+    width: 100%;
+    font-size: 20px;
+}
+
+
+/*Lista del menu*/
+
+.menu ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    position: unset;
+}
+
+
+/*Interaccion del usuario con el menu*/
+
+.menu li:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/*Propiedades de los elementos del menu*/
+
+.menu li a {
+    display: block;
+    padding: 10px 25px;
+    color: #FFFFFF;
+    text-decoration: dashed;
+}
+
+
+/*Sub menu*/
+
+.menu li ul {
+    display: none;
+    position: relative;
+}
+
+.menu li:hover>ul {
+    display: block;
+}
+
+.submenu {
+    background: #337770;
+}
+
+
+/*Imagen del encabezado*/
+
+.imagenencabezado {
+    width: 10%;
+}
+
+.fondo {
+    background: #FFFFFF;
+}
+
+
+/*Clase para hacer estatico el menu*/
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+section {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#txt1 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    background: #FFFFFF;
+}
+
+#txt1 h1 {
+    font-size: 12px;
+}
+
+.copy {
+    font-size: 12px;
+}
+
+footer .contenedor {
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    background: #0C746C;
+    height: 100px;
+    color: #FFFFFF;
+}

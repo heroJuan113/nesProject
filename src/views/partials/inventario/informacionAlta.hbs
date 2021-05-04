@@ -1,0 +1,80 @@
+<h4> {{clave}}</h4>
+<table>
+    <tr>
+        <td>Tipo de Producto</td>
+        <td></td><td></td><td>&nbsp;&nbsp;&nbsp;Costo</td>
+    </tr>
+    <tr>
+        <td>
+            <tr>
+                <td>Empresa <input type="radio" name="tipo" value="empresa"></td>
+                <td>Venta <input type="radio" name="tipo" value="venta"></td>
+                <td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="costo" id="costo" onkeyup="leerDatos()"></td>
+            </tr>
+        </td>
+    </tr>
+ 
+</table>
+<br>
+<table style="margin-left: 450px; margin-top:-50px;">
+       <tr>
+        <td>Existencia</td>
+        <td><input type="number" name="existencia" name="existencia" id="existencia"  onkeyup="leerDatos()"></td>
+        <td>Piezas</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td> No. de Factura</td>
+        
+        <td><input type="number" name="factura" id="factura"  onkeyup="leerDatos()"></td>
+    </tr>
+   
+  
+ 
+</table>
+<table width="1000px" style="margin-left: -100px; margin-top:50px;"> 
+      <tr>
+        <td WIDTH="14.2%px"></td>
+        <td WIDTH="14.2%px">Gastos</td>
+        <td WIDTH="14.2%px">Costo total</td>
+        <td WIDTH="14.2%px">% Utilidad</td>
+        <td WIDTH="14.2%px">SubTotal</td>
+        <td WIDTH="14.2%px">Iva</td>
+        <td WIDTH="14.2%px">Precio de Venta</td>
+    </tr>
+    <tr>
+        <td WIDTH="14.2%"></td>
+        <td WIDTH="14.2%"><input type="text" name="gastos" id="gastos"  onkeyup="leerDatos()"></td>
+        <td WIDTH="14.2%"> <label for="" id="costoTotal"></label></td>
+        <td WIDTH="14.2%"><input type="number" name="utilidad" id="utilidad"  onkeyup="leerDatos()"></td>
+        <td WIDTH="14.2%"><label for="" id="utilidadLabel"></label></td>
+        <td WIDTH="14.2%"> <label for="" ></label></td>
+        <td WIDTH="14.2%"><input type="number" name="precioVenta" id="precioPreventa"  onkeyup="leerDatos()"></td>
+    </tr>
+</table><br>
+<div class="form-group">
+   Stock minimo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock maximo 
+   <br><input type="number" name="stockMinimo" required="true">&nbsp;
+   <input type="number" name="stockMaximo" >
+</div>
+
+<script>
+    var costo=0;
+    var existencia=0;
+    var gastos=0;
+    var utilidad=0;
+    var precioPreventa=0;
+
+ function  leerDatos(){
+     costo=parseFloat(document.getElementById('costo').value);
+     existencia=document.getElementById('existencia').value;
+     gastos=parseFloat(document.getElementById('gastos').value);
+     utilidad=document.getElementById('utilidad').value;
+     precioPreventa=document.getElementById('precioPreventa').value;
+    var costoTotal=(costo+gastos);
+    var calculo=parseFloat('1.'+utilidad);
+    var totalUtilidad=costoTotal*calculo;
+    document.getElementById('costoTotal').innerHTML=costoTotal;
+    document.getElementById('utilidadLabel').innerHTML=totalUtilidad    ;
+ }
+
+</script>

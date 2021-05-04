@@ -1,0 +1,14 @@
+ <h4>Servicios</h4>
+  <form action="/ventas/ventaServicio/{{idUsuario}}/{{idSession}}/{{idSucursal}}" method="POST">
+     <select name="producto"> 
+                {{#each servicios}}
+                        <option value="{{idServicio}},{{precio}}">{{nombre}} $ {{precio}}</option>
+                {{/each}}
+        </select>
+        <br>
+        <input type="number" name="cantidad" id="" value="1" min='1'> 
+    <button class="btn btn-success">+</button>
+
+</form>
+
+        

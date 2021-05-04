@@ -1,0 +1,11 @@
+{{>navegacion/navegacion}}
+<h3>Lista de Empleados:</h3>
+<div class="container p-4">
+    <div class="row">
+        {{#each empleados}}
+        
+            {{>empleados/catalogo}}
+            
+        {{/each}}
+    </div>
+</div>

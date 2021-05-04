@@ -1,0 +1,19 @@
+{{>navegacion/navegacion}}
+<h4>
+    Registro de Depositos y Saldo en Cuenta
+</h4>
+<form action="http://127.0.0.1:4000/recargas/nuevo/{{idUsuario}}/{{idSession}}" method="POST">
+    <div class="form-group">
+        Saldo actual en telcel:
+        <input type="number" name="saldo" class="form-control">
+    </div>
+    <div class="form-group">
+        Nuevo deposito:
+        <input type="number" name="deposito" class="form-control">
+    </div>
+    <div class="form-group" >
+        Folio | Numero de Factura:
+        <input type="text" name="folio" id="">
+    </div>
+    {{>botones/aceptar}}
+</form>

@@ -1,0 +1,17 @@
+{{> navegacion/navegacion}}
+{{#each cliente}}
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="http://127.0.0.1:4000/clientes/nuevo/{{idUsuario}}/{{idSession}}" method="POST">
+                        {{> clientes/formulario}}
+                        {{> botones/aceptar }}
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

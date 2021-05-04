@@ -1,0 +1,30 @@
+<div class="container p-5">
+    
+        
+ <form action="http://127.0.0.1:4000/principal/" method="POST">
+                        <div class="form-group">
+                            <label for="usuario" class="label">Usuario</label>
+                            <input type="text" name="usuario" placeholder="Correo Telefono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena" >Contrasena</label>
+                            <input type="password" name="contrasena" id="" class="form-control">
+                        </div>
+                        <div class="form-group"></div>
+                        <label for="sucursales">Sucursal:</label><select name="sucursales" id="sucursales" class="mdb-select md-form colorful-select dropdown-dark">
+                            {{#each sucursales}}
+                                <option value="{{idSucursal}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                        &nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;
+                        {{>botones/aceptar}}
+                       
+                   </form>
+                   <form action="">
+                        <div class="form-group">  
+                        <button class="btn  btn-warning form-control"> Registrar</button>
+                        </div>
+                   </form>
+    
+</div>

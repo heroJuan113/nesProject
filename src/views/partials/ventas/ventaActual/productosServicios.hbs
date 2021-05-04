@@ -1,0 +1,41 @@
+<tbody>
+{{#each ventasProceso}}
+    	
+    <tr>
+        
+        <td>{{claveServicio}}</td>
+        <td>{{nombre}}</td>
+        <td>
+                <form action="http://127.0.0.1:4000/ventas/nuevaCantidad/{{idUsuario}}/{{idSession}}/{{idProceso}}" method="POST">
+                  <center>
+                      <input type="number" name ='cantidad' value="{{cantidad}}" min="1" >
+                  <br> <br> <button class="btn btn-success"> ok</button>
+                    </center>
+                </form>
+            </td>
+        <td>{{precio}}</td>
+        <td>{{total}}</td>
+        <td>
+            <form action="http://127.0.0.1:4000/ventas/serviciosAumento/{{idProceso}}/{{idSession}}/{{idUsuario}}" method="POST">
+                <button class="btn btn-success"> + </button> 
+            </form>
+            <form action="http://127.0.0.1:4000/ventas/serviciosDecremento/{{idProceso}}/{{idSession}}/{{idUsuario}}" method="POST">
+                <button class="btn btn-warning"> - </button>
+            </form>
+            <form action="http://127.0.0.1:4000/ventas/serviciosCancelar/{{idProceso}}/{{idSession}}/{{idUsuario}}" method="POST">
+                <button class="btn btn-danger"> X </button>
+            </form>
+        </td>
+    </tr>
+  
+{{/each}}
+  <tr>
+   <td></td>
+   <td>Total</td>
+   <td>
+       <td></td>
+   </td>
+   <td>{{total}} </td>
+   <td><a href="/ventas/terminarVenta/{{idProceso}}/{{idSession}}/{{idUsuario}}" class="btn btn-success" >Terminar venta</a></td>
+</tr>
+</tbody>

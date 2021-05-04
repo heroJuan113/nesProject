@@ -1,0 +1,14 @@
+
+<table  class="table table-striped"  style="margin-left:0%; margin-top:2%; width:20%;"  border="1" id="tablaResultados">
+    <thead> 
+        <td>Codigo</td>
+        <td>Nombre</td>
+        <td>precio</td>
+        <td>Opciones</td>
+    </thead>
+    <tbody>
+        {{#each inventario}}
+       {{>ventas/productos/listado}}
+        {{/each}}
+    </tbody>
+</table>

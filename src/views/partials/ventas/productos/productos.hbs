@@ -1,0 +1,11 @@
+ <h4>Productos</h4>
+  <form action="/ventas/busquda/productos/{{idUsuario}}/{{idSession}}/{{idSucursal}}" method="POST">
+        
+        <input type="input" name="claveProducto" id="claveProducto"> 
+        <button class="btn btn-success">+</button>
+        </form>
+        <div style=" width: 200px; height: fit-content;">
+            {{>ventas/productos/tabla}}
+        </div>          
+    <script>
+    </script>

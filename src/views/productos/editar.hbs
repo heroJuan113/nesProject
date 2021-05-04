@@ -1,0 +1,12 @@
+{{> navegacion/navegacion}}
+
+
+    {{#each producto}}
+    {{idUsuario}}
+        <form action="http://127.0.0.1:4000/productos/editar/{{id}}/{{idUsuario}}/{{idSession}}" method="POST">
+
+            {{> productos/formularioEdit}}
+            {{> botones/aceptar }}
+
+        </form>
+    {{/each}}

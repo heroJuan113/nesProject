@@ -1,0 +1,31 @@
+{{> navegacion/navegacion }}
+<div class="container">
+
+    <table class="table table-success" border="1" style="width: 113%; margin-left: -45px;">
+        <thead>
+            <td><strong>Nombre</strong></td>
+            <td><strong>Direccion</strong></td>
+            <td><strong>Referencia</strong></td>
+        </thead>
+        <tbody>
+        {{#each sucursal}}
+            <tr style="text-align: justify;">
+                
+                    <td style="text-align: justify;"><a href="http://127.0.0.1:4000/sucursales/visualizar/{{idSucursal}}/{{idSession}}">
+                        <strong>{{ nombre}}</strong>    
+                    </a> </td>
+                <td style="text-align: justify;"> <a href="#">
+                       {{colonia}}
+                        {{ calle }}
+                        {{numero}}
+                    </a></td>
+                <td style="text-align: justify;">
+                        {{referencia}}
+                    </td>
+                </a>
+            </tr>
+        {{/each}}
+        </tbody>
+         
+    </table>
+</div>

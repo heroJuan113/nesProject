@@ -1,0 +1,12 @@
+{{> navegacion/navegacion}}
+<h3>Lista de Productos</h3>
+<div class="container p-4">
+    <div class="row">
+        {{#each productos}}
+        
+            {{>productos/catalogo}}
+            
+        {{/each}}
+    </div>
+    {{productos/datos}}
+</div>  

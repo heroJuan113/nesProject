@@ -1,0 +1,78 @@
+{{#each usuariosCorrectos}}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cyber Nes</title>
+</head>
+<body>
+	<header class="navegacion ">
+		</div>
+		<nav class="menu" id="menu">
+			<ul>
+				<li><label style="color: yellowgreen; margin-top: 8	px;">CyberNes</span></label>
+				</li>	
+				<li><a href="http://127.0.0.1:4000/sucursales/{{idUsuario}}/{{idSession}}">Sucursales</a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/sucursales/add/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/sucursales/{{idUsuario}}/{{idSession}}">Catalogo</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="http://127.0.0.1:4000/empleados/{{idUsuario}}/{{idSession}}">Empleados</a>
+					<ul class='submenu'>	
+						<li><a href="http://127.0.0.1:4000/empleados/nuevo/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/empleados/{{idUsuario}}/{{idSession}}">Catalogo</a></li>
+						<li><a href="http://127.0.0.1:4000/empleados/asignacion/{{idUsuario}}/{{idSession}}">Asignacion</a></li>
+						<li><a href="http://127.0.0.1:4000/empleados/recuperacion/{{idUsuario}}/{{idSession}}">Contrasena</a></li>
+					</ul>
+				</li>
+				
+				
+				<li><a href="http://127.0.0.1:4000/proveedores/{{idUsuario}}/{{idSession}}">Proveedores<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/proveedores/nuevo/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/proveedores/{{idUsuario}}/{{idSession}}">Catalogo</a></li>
+					</ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/productos/{{idUsuario}}/{{idSession}}">Productos<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/productos/nuevo/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/productos/{{idUsuario}}/{{idSession}}">Catalogo</a></li>
+						<li><a href="http://127.0.0.1:4000/productos/{{idUsuario}}/{{idSession}}">Corte</a></li>
+					</ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/servicios/{{idUsuario}}/{{idSession}}">Servicios<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/servicios/nuevo/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/servicios/{{idUsuario}}/{{idSession}}">Catalogo</a></li></ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/servicios/{{idUsuario}}/{{idSession}}">Recargas<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/recargas/nuevo/{{idUsuario}}/{{idSession}}">Deposito</a></li>
+						<li><a href="http://127.0.0.1:4000/recargas/{{idUsuario}}/{{idSession}}">Nueva</a></li>	</ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/inventario/{{idUsuario}}/{{idSession}}">Inventario<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/inventario/altas/{{idUsuario}}/{{idSession}}">Altas</a></li>
+						<li><a href="http://127.0.0.1:4000/inventario/existencia/empresa/{{idUsuario}}/{{idSession}}">Empresa</a></li>
+						<li><a href="http://127.0.0.1:4000/inventario/existencia/ventas/{{idUsuario}}/{{idSession}}">Ventas</a></li>
+					</ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/clientes/{{idUsuario}}/{{idSession}}">Clientes<span></span></a>
+					<ul class='submenu'>
+						<li><a href="http://127.0.0.1:4000/clientes/nuevo/{{idUsuario}}/{{idSession}}">Registrar</a></li>
+						<li><a href="http://127.0.0.1:4000/clientes//{{idUsuario}}/{{idSession}}">Catalogo</a></li>
+					</ul>
+				</li>
+				<li><a href="http://127.0.0.1:4000/ventas/{{idUsuario}}/{{idSession}}">Ventas<span></span></a>
+					<ul class="submenu"></ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+		&nbsp;<h3 style="margin-left: 3%;">Bienvenido {{usuario}}</h3>
+	</body>
+</html>
+<br>
+{{/each}}

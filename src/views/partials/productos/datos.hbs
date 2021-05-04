@@ -1,0 +1,13 @@
+
+{{#each proveedores}}
+    <tr>
+    <td>{{clave}}</a></td>
+        <td><a href="http://127.0.0.1:4000/productos/editar/{{clave}}/{{idUsuario}}/{{idSession}}">{{linea}} {{serie}}</a></td>
+        <td>{{seccion}}</td>
+        <td>{{marca}}{{linea}} {{serie}}</td>
+        <td>{{descripcion}}</td>
+        <td>{{unidadMedida}} 
+            <br>
+        {{garantia}}</td>
+</tr>
+{{/each}}

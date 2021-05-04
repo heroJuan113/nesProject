@@ -1,0 +1,35 @@
+<div class="container">
+
+    <table class="table table-success" border="1" style="width: 113%; margin-left: -45px;">
+        <thead>
+            <td><strong>Nombre</strong></td>
+            <td><strong>Curp</strong></td>
+            <td><strong>Domicilio</strong></td>
+            <td><strong>Telefono</strong></td>
+            <td><strong></strong></td>
+        </thead>
+        <tbody>
+        {{#each cliente}}
+            <tr style="text-align: justify;">
+                
+                    <td style="text-align: justify;"><a href="http://127.0.0.1:4000/clientes/visualizar/{{idCliente}}/{{idUsuario}}/{{idSession}}">
+                        <strong>{{ nombre}}</strong>    
+                    </a> </td>
+                <td style="text-align: justify;"> <a href="#">
+                       {{curp}}
+                    </a></td>
+                    <td>
+                        {{ ciudad }}
+                        {{estado }}
+                        {{calle}}
+                        {{numero}}
+                    </td>
+                <td style="text-align: justify;">
+                    {{telefono}}
+                    </td>
+            </tr>
+        {{/each}}
+        </tbody>
+         
+    </table>
+</div>

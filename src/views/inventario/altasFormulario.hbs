@@ -1,0 +1,28 @@
+{{>navegacion/navegacion}}
+<h3>Alta de productos: </h3>
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-3">
+            
+            <form action="http://127.0.0.1:4000/inventario/busqueda/{{idUsuario}}/{{idSession}}" method="POST">
+              
+                {{>inventario/busqueda}}
+                {{>botones/aceptar}}
+            </form>         
+        </div>
+       
+       
+        <div class="">
+            <form action="http://127.0.0.1:4000/inventario/registro/{{idUsuario}}/{{idSession}}/{{clave}}/{{idProducto}}" method="POST">
+            {{#if descripcion}}    
+            
+            {{>inventario/informacionAlta}}
+            <div class="col-md-3" style="margin-top: 20px;">
+                {{>botones/aceptar}}
+            </div>
+        {{/if}}
+            </form>
+        </div>
+        
+    </div>
+</div>

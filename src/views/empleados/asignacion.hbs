@@ -1,0 +1,93 @@
+{{>navegacion/navegacion}}
+<h2>Asignacion de Horarios a Empleados :<br>
+&nbsp &nbsp Empleados<select name="nombreEmpleados" id="">
+{{#each dato}}
+    
+
+    
+    {{#if banderaEmpleado}}
+        {{>empleados/nombres}}
+  {{/if}}
+
+    
+    
+{{/each}}
+</select><br>
+<br>&nbsp &nbsp Sucursales
+<select name="sucursal" id="">
+{{#each dato}}
+
+{{#if banderaSucursal}}
+        {{>sucursales/nombres}}
+  {{/if}}
+{{/each}}
+</select>
+    </select>
+</h2>
+<div class=" p-4">
+    <div class="card text-center">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th scope="col">
+                       
+                    </th>
+                {{>dias}}
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" >9:00am a 10:00 am</th>
+                             {{>horarios/nueveDiez}}
+                    </tr>
+                    <tr>
+                        <th scope="row">10:00 am a 11:00 am</th>
+                        {{>horarios/diezOnce}}
+                    </tr>
+                    <tr>
+                        <th scope="row">11:00 am a 12:00 pm</th>
+                        {{>horarios/onceDoce}}
+                    </tr>
+                    <tr>
+                        <th scope="row">12:00 pm a  1:00 pm</th>
+                    {{>horarios/doceUna}}
+                    </tr>
+              
+                 <tr>
+                        <th scope="row">1:00 pm a  2:00 pm</th>
+                    {{>horarios/unaDos}}
+                    </tr>
+                     <tr>
+                        <th scope="row">2:00 pm a  3:00 pm</th>
+                    {{>horarios/dosTres}}
+                    </tr>
+                     <tr>
+                        <th scope="row">3:00 pm a  4:00 pm</th>
+                    {{>horarios/tresCuatro}}
+                    </tr>
+                 <tr>
+                        <th scope="row">4:00 pm a  5:00 pm</th>
+                    {{>horarios/cuatroCinco}}
+                    </tr>
+                  <tr>
+                    <th scope="row">5:00 pm a  6:00 pm</th>
+                        {{>horarios/cincoSeis}}
+                    </tr>
+                      <tr>
+                        <th scope="row">6:00 pm a  7:00 pm</th>
+                    {{>horarios/seisSiete}}
+                    </tr>
+                      <tr>
+                        <th scope="row">7:00 pm a  :800 pm</th>
+                    {{>horarios/sieteOcho}}
+                    </tr>
+                      <tr>
+                        <th scope="row">8:00 pm a  9:00 pm</th>
+                    {{>horarios/doceUna}}
+                    </tr>
+                </tbody>
+            </table>
+            
+            {{>botones/aceptar}}
+        </div>
+    </div>
+</div>

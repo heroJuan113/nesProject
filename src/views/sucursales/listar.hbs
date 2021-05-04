@@ -1,0 +1,15 @@
+{{> navegacion/navegacion }}
+
+
+
+<h3>Catalogo de sucursales  </h3> {{idUsuario   }}
+<center> {{> sucursales/catalogo/botones}}</center>
+<div class="container p-4">
+    <div class="row">
+        {{#each sucursales}}
+         
+                {{>sucursales/catalogo}}
+            
+        {{/each}}
+    </div>
+</div>

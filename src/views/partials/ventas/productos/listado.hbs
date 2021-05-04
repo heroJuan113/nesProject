@@ -1,0 +1,16 @@
+ <tr>       
+            <td>{{clave}}</td>
+            <td>{{marca}} {{linea}} {{serie}}
+                <form action="/ventas/nuevoProductoProceso/{{idUsuario}}/{{idSession}}/{{idSucursal}}/{{idProducto}}" method="POST">
+        
+        <input type="number" name="cantidad" id="claveProducto"value="1" min="1" max="{{existencia}}"> 
+        <button class="btn btn-success">+</button>
+        </form> 
+            </td>
+            <td>{{precioVenta}}</td>
+            <td>
+                <a href="/a/" class="btn btn-success">+</a>
+                <a href="/b/" class="btn btn-danger">X</a>
+            </td>
+            
+        </tr>
