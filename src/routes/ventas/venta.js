@@ -181,7 +181,7 @@ router.post('/nuevaCantidad/:idUsuario/:idSession/:idProceso',async(req,res)=>{
             }
         }
     }
-    console.log('ventas proceso ');
+   
 
     let total=0;
     for(let m=0; m<ventasProceso.length; m++){
@@ -275,6 +275,10 @@ router.post('/nuevoProductoProceso/:idUsuario/:idSession/:idSucursal/:idProducto
 
 res.redirect('/ventas/servicios/' + idUsuario + '/' + idSession);
   
+});
+
+router.get('/productosindividual/' ,async(req,res)=>{
+    res.send('venta de producto individual');
 });
 function idProceso(longitud) {
     let minusculas = [
