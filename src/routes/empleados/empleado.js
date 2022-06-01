@@ -197,7 +197,7 @@ router.get('/visualizar/:id/:idUsuario/:idSession', async(req, res) => {
 });
 
 router.get('/asignacion/:idUsuario/:idSession', async(req, res) => {
-    const {idusuario,idSession}=req.params;
+    const {idUsuario,idSession}=req.params;
     const empleados = await dbConnection.query('select  * from empleados ');
     const sucursales = await dbConnection.query('select * from sucursales where bandera =1 ');
     let dato = [];
@@ -217,6 +217,7 @@ router.get('/asignacion/:idUsuario/:idSession', async(req, res) => {
         });
 
     }
+    console.log(sucursales);
     for (let i = 0; i < sucursales.length; i++) {
         sucursales[i].idUsuario = idUsuario;
         sucursales[i].idSession = idSession;

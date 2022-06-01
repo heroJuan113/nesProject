@@ -27,14 +27,15 @@ router.post('/nuevo/:idUsuario/:idSession', async(req, res) => {
         garantia,
         idProveedor,
         unidadMedida
-    } = req.body;
-
+    } = req.body; 
+    let productos=await dbConnection.query("select * from productos where clave= ?" ,[clave]);
+    console.log(productos);
     const newProducto = {
         idProducto: idProducto(),
         clave,
         seccion,
         marca,
-        linea,
+        linea,  
         serie,
         descripcion,
         garantia,
@@ -43,7 +44,13 @@ router.post('/nuevo/:idUsuario/:idSession', async(req, res) => {
         iva: getIva(req)
     };
     const { idUsuario, idSession } = req.params;
-    await dbConnection.query('insert into productos set ?', newProducto);
+    if(productos.length==0){
+        await dbConnection.query('insert into productos set ?', newProducto);
+    }else{
+
+        res.send("Clave registrada anterior mente" +productos);
+    }
+    //await dbConnection.query('insert into productos set ?', newProducto);
 
     res.redirect('/productos/' + idUsuario + '/' + idSession);
 });

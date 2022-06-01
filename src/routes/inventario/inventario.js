@@ -1,4 +1,5 @@
 const express = require('express');
+const { off } = require('pdfkit');
 const router = express.Router();
 const dbConnection = require('../../database');
 
@@ -28,12 +29,22 @@ router.post('/busqueda/:idUsuario/:idSession', async(req, res) => {
     let { clave } = req.body;
     clave = clave.trim();
     const sucursal = await dbConnection.query('select idSucursal from sessiones where bandera=1 and idSession=?', idSession);
-    const productos = await dbConnection.query('select descripcion ,idProducto from productos where bandera=1 and clave = ? ', clave);
+    
+   let informacion=[];
     const usuariosCorrectos = await dbConnection.query('select * from usuarios where bandera=1 and idUsuario=?', idUsuario);
     let idSucursal = '';
     let descripcion = '';
+    let a =1;
     for (let i = 0; i < sucursal.length; i++) {
         idSucursal = sucursal[i].idSucursal;
+    }
+    const productos = await dbConnection.query("select * from productos where bandera=? and clave=?", [a,clave]);
+    for (let  producto in productos) {
+        //if(producto.length>0){
+             informacion =dbConnection.query('select * from inventario where idProducto=?  and clave = ? and idSucursal=?', [productos[producto].idProducto,clave,idSucursal] );
+        
+        //console.log("producto " , productos[producto]);
+        console.log("informacioon" ,informacion[0] );
     }
     let idProducto = '';
     for (let i = 0; i < productos.length; i++) {
@@ -41,7 +52,6 @@ router.post('/busqueda/:idUsuario/:idSession', async(req, res) => {
         descripcion = productos[i].descripcion;
         idProducto = productos[i].idProducto;
     }
-    console.log('idProducto', idProducto);
     for (let i = 0; i < usuariosCorrectos.length; i++) {
         usuariosCorrectos[i].idUsuario = idUsuario;
         usuariosCorrectos[i].idSession = idSession;
@@ -49,6 +59,11 @@ router.post('/busqueda/:idUsuario/:idSession', async(req, res) => {
 
     res.render('inventario/altasFormulario', { usuariosCorrectos, idUsuario, idSession, descripcion, clave, idProducto });
 });
+
+
+
+
+
 router.post('/registro/:idUsuario/:idSession/:clave/:idProducto', async(req, res) => {
     const { tipo, costo, existencia, factura, gastos, utilidad, precioVenta, stockMinimo, stockMaximo } = req.body;
     const { idSession, idUsuario, clave, idProducto } = req.params;
@@ -72,8 +87,19 @@ router.post('/registro/:idUsuario/:idSession/:clave/:idProducto', async(req, res
         precioVenta: precioVenta,
         stockMinimo: stockMinimo,
         stockMaximo: stockMaximo
+    };
+  //  console.log("."+idSucursal+".x");
+    enExistencia=await dbConnection.query("select * from inventario where idSucursal=? and clave=? and idProducto=?",[idSucursal,clave,idProducto]);
+    console.log(enExistencia.length);
+    if(enExistencia.length==1){
+        await dbConnection.query("update inventario set stockMaximo="+nuevoInventario.stockMaximo +", stockMinimo="+nuevoInventario.stockMinimo +", precioVenta="+nuevoInventario.precioVenta +", utilidad="+ nuevoInventario.utilidad+", gastos="+nuevoInventario.gastos +", factura="+nuevoInventario.factura +", costo ="+nuevoInventario.costo +", existencia ="+nuevoInventario.existencia +"  where idProducto = '" +idProducto +"' and clave='"+clave+"' and tipo = 'venta' and idSucursal='"+idSucursal+"'");
+    
+    }else if(enExistencia.length>1){
+
+    }else{
+        await dbConnection.query('insert into inventario set?', nuevoInventario);
     }
-    await dbConnection.query('insert into inventario set?', nuevoInventario);
+   // await dbConnection.query('insert into inventario set?', nuevoInventario);
 
     res.redirect('http://127.0.0.1:4000/inventario/altas/' + idUsuario + '/' + idSession);
 });

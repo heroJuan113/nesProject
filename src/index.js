@@ -6,8 +6,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const { database } = require('./keys');
-const app = express();
 
+const app = express();
 
 //configuraciones
 app.set('port', process.env.PORT || 4000);
@@ -43,10 +43,6 @@ app.use((req, res, next) => {
     app.locals.mensajeDanger = req.flash('mensajeDanger');
     next();
 });
-
-
-//rutas
-// app.use(require('./routes/index.js'));
 app.use('/sucursales', require('./routes/Sucursales/sucursal'));
 app.use('/proveedores', require('./routes/Proveedores/proveedor'));
 app.use('/productos', require('./routes/Productos/producto'));
@@ -58,10 +54,11 @@ app.use('/ventas', require('./routes/Ventas/venta'));
 app.use('/inventario', require('./routes/inventario/inventario'));
 app.use('/servicios', require('./routes/servicios/servicio'));
 app.use('/recargas', require('./routes/recargas/recarga'));
+app.use('/reportes', require('./routes/reportes/venta'));
 //archivos publicos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 //niciar el servidor    
 app.listen(app.get('port'), () => {
-   
-});
+    
+})

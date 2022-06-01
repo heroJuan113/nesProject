@@ -1,0 +1,13 @@
+{{> navegacion/navegacion}}
+<h2>
+    Reporte de ventas por fecha
+</h2>
+<form action="http://127.0.0.1:4000/reportes/fecha/ventas/{{idUsuario}}/{{idSession}}" method="POST">
+    <input type="date" style="margin-left: 15%; margin-top: 22px;" name="createdAt" required><button style="margin-left: 5%;">Aceptar</button>
+</form>
+
+<div style="margin-top: 30px;">
+{{> reportes/ventas/fecha/index}}
+</div>
+
+

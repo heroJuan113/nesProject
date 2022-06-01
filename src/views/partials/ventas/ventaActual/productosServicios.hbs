@@ -16,6 +16,10 @@
         <td>{{precio}}</td>
         <td>{{total}}</td>
         <td>
+            <div>
+
+                
+            </div>
             <form action="http://127.0.0.1:4000/ventas/serviciosAumento/{{idProceso}}/{{idSession}}/{{idUsuario}}" method="POST">
                 <button class="btn btn-success"> + </button> 
             </form>
@@ -27,15 +31,16 @@
             </form>
         </td>
     </tr>
-  
 {{/each}}
+
+
   <tr>
    <td></td>
    <td>Total</td>
    <td>
        <td></td>
    </td>
-   <td>{{total}} </td>
-   <td><a href="/ventas/terminarVenta/{{idProceso}}/{{idSession}}/{{idUsuario}}" class="btn btn-success" >Terminar venta</a></td>
+   <td>{{total}} </td>                  
+   <td><a href="/ventas/terminarVenta/{{idSession}}/{{idUsuario}}/{{idSucursal}}" class="btn btn-success" >Terminar venta{{idProceso}}</a></td>  
 </tr>
 </tbody>
