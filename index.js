@@ -5,19 +5,19 @@ const path = require("path");
 const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
-const { database } = require('./keys');
+const { database } = require('./src/keys.js');
 
 const app = express();
 
 //configuraciones
-app.set('port', 8080);
-app.set('views', path.join(__dirname, 'views'));
+app.set('port', process.env.PORT || 4000);
+app.set('views', __dirname, 'views');
 app.engine('.hbs', expresshbs({
     defaultLayout: 'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
-    helpers: require('./lib/handlebars')
+    helpers: require('./src/lib/handlebars.js')
 }));
 app.set('view engine', '.hbs');
 //midlewares
@@ -43,18 +43,18 @@ app.use((req, res, next) => {
     app.locals.mensajeDanger = req.flash('mensajeDanger');
     next();
 });
-app.use('/sucursales', require('./routes/Sucursales/sucursal'));
-app.use('/proveedores', require('./routes/Proveedores/proveedor'));
-app.use('/productos', require('./routes/Productos/producto'));
-app.use('/empleados', require('./routes/Empleados/empleado'));
-app.use('/clientes', require('./routes/Clientes/cliente'));
-app.use('/contrasenas', require('./routes/Contrasenas/index'));
-app.use(require('./routes/Session/inicio'));
-app.use('/ventas', require('./routes/Ventas/venta'));
-app.use('/inventario', require('./routes/inventario/inventario'));
-app.use('/servicios', require('./routes/servicios/servicio'));
-app.use('/recargas', require('./routes/recargas/recarga'));
-app.use('/reportes', require('./routes/reportes/venta'));
+app.use('/sucursales', require('./src/routes/Sucursales/sucursal'));
+app.use('/proveedores', require('./src/routes/Proveedores/proveedor'));
+app.use('/productos', require('./src/routes/Productos/producto'));
+app.use('/empleados', require('./src/routes/Empleados/empleado'));
+app.use('/clientes', require('./src/routes/Clientes/cliente'));
+app.use('/contrasenas', require('./src/routes/Contrasenas/index'));
+app.use(require('./src/routes/Session/inicio'));
+app.use('/ventas', require('./src/routes/Ventas/venta'));
+app.use('/inventario', require('./src/routes/inventario/inventario'));
+app.use('/servicios', require('./src/routes/servicios/servicio'));
+app.use('/recargas', require('./src/routes/recargas/recarga'));
+app.use('/reportes', require('./src/routes/reportes/venta'));
 //archivos publicos
 app.use(express.static(path.join(__dirname, 'public'))); 
 
