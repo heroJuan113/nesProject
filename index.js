@@ -10,8 +10,8 @@ const { database } = require('./src/keys.js');
 const app = express();
 
 //configuraciones
-app.set('port', process.env.PORT || 4000);
-app.set('views', __dirname, 'views');
+app.set('port', 8080);
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', expresshbs({
     defaultLayout: 'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
