@@ -1,0 +1,23 @@
+const express = require('express');
+const router = express.Router();
+const dbConnection = require('../../database');
+var XLSX = require("xlsx");
+
+router.post('/', async() => {
+    
+ 
+    let data =("C:\\Users\\Chelita\\Documents\\GitHub\\nesProject - copia\\src\\public\\excel\\Recargas 2022.xlsx");
+    var archivo;
+    if(XLSX.read(data)){
+        archivo =XLSX.readFile(data)
+       
+         var nombreHojas=archivo.SheetNames;
+         console.log(nombreHojas);
+    }else{
+
+        console.log("efesota");
+    }
+    
+        
+});
+module.exports = router;

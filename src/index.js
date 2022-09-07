@@ -55,6 +55,7 @@ app.use('/inventario', require('./routes/inventario/inventario'));
 app.use('/servicios', require('./routes/servicios/servicio'));
 app.use('/recargas', require('./routes/recargas/recarga'));
 app.use('/reportes', require('./routes/reportes/venta'));
+app.use('/importarExcel', require('./routes/importarExcel/importarExcel'));
 //archivos publicos
 app.use(express.static(path.join(__dirname, 'public'))); 
 

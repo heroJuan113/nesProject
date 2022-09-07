@@ -10,8 +10,8 @@ const { database } = require('./src/keys.js');
 const app = express();
 
 //configuraciones
-app.set('port', 8080);
-app.set('views', path.join(__dirname, 'views'));
+app.set('port', 4000);
+app.set('views', path.join( './src/views'));
 app.engine('.hbs', expresshbs({
     defaultLayout: 'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
@@ -55,6 +55,7 @@ app.use('/inventario', require('./src/routes/inventario/inventario'));
 app.use('/servicios', require('./src/routes/servicios/servicio'));
 app.use('/recargas', require('./src/routes/recargas/recarga'));
 app.use('/reportes', require('./src/routes/reportes/venta'));
+app.use('/importarExcel', require('./src/routes/importarExcel/importarExcel'));
 //archivos publicos
 app.use(express.static(path.join(__dirname, 'public'))); 
 
