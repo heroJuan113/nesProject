@@ -6,8 +6,7 @@ var XLSX = require("xlsx");
 router.post('/', async() => {
     
  
- 
-    let data =("..//public//excel//Recargas 2022.xlsx");
+    let data =("C:\\Users\\Chelita\\Documents\\GitHub\\nesProject - copia\\src\\public\\excel\\Recargas 2022.xlsx");
     var archivo;
     if(XLSX.read(data)){
         archivo =XLSX.readFile(data)
