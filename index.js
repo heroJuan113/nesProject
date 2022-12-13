@@ -49,7 +49,7 @@ app.use('/productos', require('./src/routes/Productos/producto'));
 app.use('/empleados', require('./src/routes/Empleados/empleado'));
 app.use('/clientes', require('./src/routes/Clientes/cliente'));
 app.use('/contrasenas', require('./src/routes/Contrasenas/index'));
-app.use(require('./src/routes/Session/inicio'));
+app.use('/',require('./src/routes/Session/inicio'));
 app.use('/ventas', require('./src/routes/Ventas/venta'));
 app.use('/inventario', require('./src/routes/inventario/inventario'));
 app.use('/servicios', require('./src/routes/servicios/servicio'));
