@@ -39,7 +39,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/sucursales', require('./src/routes/Sucursales/sucursal'));
-//app.use('/proveedores', require('./src/routes/Proveedores/proveedor'));
+app.use('/proveedores', require('./src/routes/proveedores/proveedor'));
 app.use('/productos', require('./src/routes/Productos/producto'));
 app.use('/empleados', require('./src/routes/Empleados/empleado'));
 app.use('/clientes', require('./src/routes/Clientes/cliente'));
