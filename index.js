@@ -40,18 +40,22 @@ app.use((req, res, next) => {
     next();
 });*/
 app.use('/sucursales', require('./src/routes/Sucursales/sucursal'));
-app.use('/proveedores', require('./src/routes/proveedores/proveedor'));/*
+app.use('/proveedores', require('./src/routes/proveedores/proveedor'));
+/*
 app.use('/productos', require('./src/routes/Productos/producto'));
 app.use('/empleados', require('./src/routes/Empleados/empleado'));
 app.use('/clientes', require('./src/routes/Clientes/cliente'));
 app.use('/contrasenas', require('./src/routes/Contrasenas/index'));
+*/
 app.use('/',require('./src/routes/Session/inicio'));
+/*
 app.use('/ventas', require('./src/routes/Ventas/venta'));
 app.use('/inventario', require('./src/routes/inventario/inventario'));
 app.use('/servicios', require('./src/routes/servicios/servicio'));
 app.use('/recargas', require('./src/routes/recargas/recarga'));
 app.use('/reportes', require('./src/routes/reportes/venta'));
 app.use('/importarExcel', require('./src/routes/importarExcel/importarExcel'));
+*/
 //archivos publicos
 app.use(express.static(path.join(__dirname, 'public'))); 
 
