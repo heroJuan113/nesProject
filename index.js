@@ -33,11 +33,12 @@ app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 
 //variables globales 
+/*
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.mensajeDanger = req.flash('mensajeDanger');
     next();
-});
+});*/
 app.use('/sucursales', require('./src/routes/Sucursales/sucursal'));
 app.use('/proveedores', require('./src/routes/proveedores/proveedor'));/*
 app.use('/productos', require('./src/routes/Productos/producto'));
@@ -50,7 +51,7 @@ app.use('/inventario', require('./src/routes/inventario/inventario'));
 app.use('/servicios', require('./src/routes/servicios/servicio'));
 app.use('/recargas', require('./src/routes/recargas/recarga'));
 app.use('/reportes', require('./src/routes/reportes/venta'));
-app.use('/importarExcel', require('./src/routes/importarExcel/importarExcel'));*/
+app.use('/importarExcel', require('./src/routes/importarExcel/importarExcel'));
 //archivos publicos
 app.use(express.static(path.join(__dirname, 'public'))); 
 
