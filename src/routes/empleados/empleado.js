@@ -36,16 +36,19 @@ router.post('/add/:idUsuario/:idSession', async(req, res) => {
         telefono,
         numero,
         codigoPostal,
-        estado
+        estado,
+       
     };
     const { idUsuario, idSession } = req.params;
     await dbConnection.query('insert into empleados set ?', newempleado);
     const usuarioEmpleado = {
-        idUsuario: idempleado,
+        idSession:idSession,
+        idUsuario: idempleado1(100),
         usuario: nombre,
         pass: idempleado1(14),
         tipoUsuario: 'empleado',
-        usuarioPhone: telefono
+        usuarioPhone: telefono,
+        idempleado: idempleado1(100)
     };
     const usuariosCorrectos = await dbConnection.query('select * from usuarios where bandera=1 and idUsuario = ?', idUsuario);
     await dbConnection.query('insert into usuarios set ?', usuarioEmpleado);
