@@ -1,4 +1,4 @@
- const PORT =process.env.PORT || 3000
+ const PORT =process.env.PORT || 4000
 
  const DB_HOST =process.env.DB_HOST || 'localhost'
 
@@ -18,6 +18,8 @@ module.exports={
     user:DB_USER,
     password:DB_PASSWORD,
     database:DB_NAME,
-    DB_PORT:DB_PORT
+    DB_PORT:DB_PORT,
+    PORT:PORT
  }  
 };
+

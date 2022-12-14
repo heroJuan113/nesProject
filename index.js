@@ -8,9 +8,11 @@ const MySQLStore = require('express-mysql-session');
 const { database } = require('./src/keys.js');
 
 const app = express();
-
+//const { PORT } = require('./src/keys.js');
+//console.log(PORT)
 //configuraciones
-app.set('port', 4000);
+
+app.set('PORT', database.PORT);
 app.set('views', path.join( './src/views'));
 app.engine('.hbs', expresshbs({
     defaultLayout: 'main',
@@ -60,6 +62,6 @@ app.use('/importarExcel', require('./src/routes/importarExcel/importarExcel'));
 app.use(express.static(path.join(__dirname, 'public'))); 
 
 //niciar el servidor    
-app.listen(app.get('port'), () => {
-    
+app.listen(app.get('PORT'), () => {
+    console.log("iniciado")
 })
