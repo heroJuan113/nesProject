@@ -47,7 +47,7 @@ app.use('/empleados', require('./src/routes/Empleados/empleado'));
 app.use('/clientes', require('./src/routes/Clientes/cliente'));
 app.use('/contrasenas', require('./src/routes/Contrasenas/index'));
 */
-app.use('/',require('./src/routes/Session/inicio'));
+app.use('/',require('./src/routes/session/inicio'));
 /*
 app.use('/ventas', require('./src/routes/Ventas/venta'));
 app.use('/inventario', require('./src/routes/inventario/inventario'));
