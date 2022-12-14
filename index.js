@@ -8,10 +8,8 @@ const MySQLStore = require('express-mysql-session');
 const { database } = require('./src/keys.js');
 
 const app = express();
-//const { PORT } = require('./src/keys.js');
-//console.log(PORT)
-//configuraciones
 
+console.log(database.PORT);
 app.set('PORT', database.PORT);
 app.set('views', path.join( './src/views'));
 app.engine('.hbs', expresshbs({
@@ -23,12 +21,7 @@ app.engine('.hbs', expresshbs({
 }));
 app.set('view engine', '.hbs');
 //midlewares
-app.use(session({
-    secret: 'nesSession',
-    resave: false,
-    saveUninitialized: false,
-    // store: new MySQLStore(database)
-}));
+
 app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
