@@ -40,16 +40,13 @@ router.post('/fecha/ventas/:idUsuario/:idSession',async(req,res)=>{
            // console.log(ventas[h]);
         }else if(ventas[h].idProducto.length>0){
             producto=await dbConnection.query("select * from productos where idProducto =? and clave=?",[ventas[h].idProducto ,ventas[h].clave]);
-            if(producto.length>0){
-
-           
   //productoInventario=await dbConnection.query("select * from inventario where idProducto =? and clave=? and idSucursa=?",[ventas[h].idProducto ,ventas[h].clave] ,ventas[h].idSucursal);
             ventasfechaProductos.push(ventas[h]); 
-           ventasfechaProductos[cuentaProductos].marca=producto[0].marca;
+            ventasfechaProductos[cuentaProductos].marca=producto[0].marca;
             ventasfechaProductos[cuentaProductos].nombre=producto[0].linea +" "+producto[0].serie;
             ventasfechaProductos[cuentaProductos].nombre=producto[0].iva +" "+producto[0].iva;
             productoInventario=await dbConnection.query("select * from inventario where idProducto =? and clave=? and idSucursal=?",[ventas[h].idProducto ,ventas[h].clave ,ventas[h].idSucursal]);
-           
+            if(productoInventario.length>0){
                 ventasfechaProductos[cuentaProductos].costo=productoInventario[0].costo;
                 ventasfechaProductos[cuentaProductos].utilidad=productoInventario[0].utilidad;
                
@@ -64,8 +61,6 @@ router.post('/fecha/ventas/:idUsuario/:idSession',async(req,res)=>{
                     precioEstimado=precioEstimado+(precioEstimado*(productoInventario[0].utilidad/100));
                 ventasfechaProductos[cuentaProductos].precioEstimado=precioEstimado;
                 cuentaProductos++;
-            }else{
-                console.log("REVISAR INVENTARIO");
             }
            
         }

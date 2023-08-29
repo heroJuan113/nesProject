@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const dbConnection = require('../../database');
-//const pdf = require("pdfkit");
+const pdf = require("pdfkit");
 const fs=require("fs");
 const { Stream } = require('stream');
 const { Console } = require('console');
