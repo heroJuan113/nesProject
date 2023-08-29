@@ -9,9 +9,15 @@ const { database } = require('./src/keys.js');
 
 const app = express();
 
+<<<<<<< HEAD
 console.log(database.PORT);
 app.set('PORT', database.PORT);
 app.set('views', path.join( './src/views'));
+=======
+//configuraciones
+app.set('port', process.env.PORT || 4000);
+app.set('views', __dirname, 'views');
+>>>>>>> parent of a8f4f29 (correccion index)
 app.engine('.hbs', expresshbs({
     defaultLayout: 'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
